@@ -17,5 +17,9 @@ define :custom_env_template do
 
     only_if { File.exists?("#{params[:deploy][:deploy_to]}/shared/config") }
   end
-  
+
+  link "#{params[:deploy][:deploy_to]}/shared/config/application.yml" do
+    to "#{params[:deploy][:deploy_to]}/current/config/application.yml"
+  end
+
 end
